@@ -1,0 +1,43 @@
+<html>
+	<head>
+	<style>
+	.cuadro{ 
+	color: red;
+	border: 4px dashed yellow;
+	text-align: center;
+	margin-bottom: 5px;
+	}
+	.subtitulo{
+	font-size: 15pt;
+	font-family: Arial;
+	border: 1px solid lightgreen;
+	}
+	</style>
+	
+	
+	<script>
+	function saludar(){
+	var nom = document.getElementById("nombre");
+	var mensaje = "Hola "+nom.value + " !";
+	var cuadro = document.getElementById("cuadro");
+	cuadro.innerText = mensaje;
+	
+	//alert (mensaje);
+	}
+	
+	</script>
+	
+	
+	</head>
+	<body style="background-color: pink;">
+	<button onclick = "saludar()">Saludar</button> 
+	<input type = "text" value = "Ingrese el texto" id = "nombre"/>
+	<div class="cuadro">
+	
+	Hola Mundo!!
+		</div>
+		<div class="cuadro subtitulo" id="cuadro">
+	Jazmine 
+		</div>
+	</body>
+</html>

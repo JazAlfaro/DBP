@@ -1,0 +1,51 @@
+<html>
+	<head>
+	<style>
+	.cuadro{ 
+	color: red;
+	border: 4px dashed yellow;
+	text-align: center;
+	margin-bottom: 5px;
+	}
+	</style>
+	
+	
+	<script>
+	function sumar(){
+	var p =  document.getElementById("p");
+	var q =  document.getElementById("q");
+	var a = parseInt("p",10);
+	var b = parseInt("q",10);
+	var suma = a+b;
+	cuadro.innerText = suma;
+	
+	
+	}
+	
+	function restar(){
+	var p =  document.getElementById("p");
+	var q =  document.getElementById("q");
+	var a = parseInt("p",10);
+	var b = parseInt("q",10);
+	var c = a-b;
+	cuadro.innerText = c;
+	}
+	
+	</script>
+	
+	
+	</head>
+	<body style="background-color: pink;">
+	<button onclick = "sumar()"> + </button> 
+	<button onclick = "restar()"> - </button> 
+
+	
+	<input type = "text" value = "Ingrese el numero" id = "p"/>
+	<input type = "text" value = "Ingrese el numero" id = "q"/>
+	
+	<div class="cuadro" id = "cuadro">
+	Resultado 
+	</div>
+		
+	</body>
+</html>
