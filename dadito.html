@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dados</title>
+  <style>
+	table, th, td {
+		font-family:Arial;
+		border: 2px solid red;
+		border-collapse: collapse;
+		padding: 10px;
+	}
+  </style>
+  <script>
+ 
+ 
+function genera_tabla(q,a) {
+	var body = document.getElementsByTagName("body")[0];
+	var tabla   = document.createElement("table");
+	var tblBody = document.createElement("tbody");
+
+	for (var i = 1; i < q+1; i++) {
+		var fila = document.createElement("tr");
+		for (var j = 1; j < q+1; j++) {
+			var celda = document.createElement("td");
+			celda.id = i+a+j-2;
+			fila.appendChild(celda); 
+		}
+		a=a+2;
+		tblBody.appendChild(fila);
+}
+	tabla.appendChild(tblBody);
+	body.appendChild(tabla);
+}
+
+ function pinta(q,a,b){
+	genera_tabla(q,a);
+	var out = document.getElementById(b);
+	var valor = Math.floor(Math.random()*6+1);
+  	out.innerHTML = valor;
+	
+	var dado = {
+
+		1: [4],
+		2: [0, 8],
+		3: [0, 4, 8],
+		4: [0, 2, 6, 8],
+		5: [0, 2, 4, 6, 8],
+		6: [0, 2, 3, 5, 6, 8],
+	};
+	
+	var arreglo = dado[valor];
+
+	for (var i=0; i<arreglo.length; i++) {
+        var celda = document.getElementById(arreglo[i]+a);
+		celda.innerHTML = "♥"; 
+    }
+
+  }
+ 
+function ganador(a,b){
+
+	var j1=document.getElementById(a).innerHTML;
+	var j2=document.getElementById(b).innerHTML;
+	var win = document.getElementById("ok");
+	if(j1>j2)
+		win.innerHTML = "Ganó el Jugador 1";
+	if(j1<j2)
+		win.innerHTML = "Ganó el Jugador 2";
+	if(j1==j2)
+		win.innerHTML = "Empate";
+}
+
+  </script>
+</head>
+
+<body>
+    <button onclick="pinta(3,0,100)">Lanzar Dado Jugador 1</button>
+	<button onclick="pinta(3,9,101)">Lanzar Dado Jugador 2</button>
+	<p id = 100 >Jugador 1 </p>
+	<p id = 101 >Jugador 2</p>
+	<button onclick="ganador(100,101)">El Ganador es: </button>
+
+	<p id = "ok" >El Ganador es: </p>
+	
+	<div id="output" style="margin: 10px; padding: 5px;"></div>
+
+</body>
+</html>
