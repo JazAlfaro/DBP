@@ -14,7 +14,7 @@
   <script>
  
  
-function genera_tabla(q,a) {
+function genera_dado(q,a) {
 	var body = document.getElementsByTagName("body")[0];
 	var tabla   = document.createElement("table");
 	var tblBody = document.createElement("tbody");
@@ -34,7 +34,7 @@ function genera_tabla(q,a) {
 }
 
  function pinta(q,a,b){
-	genera_tabla(q,a);
+	genera_dado(q,a);
 	var out = document.getElementById(b);
 	var valor = Math.floor(Math.random()*6+1);
   	out.innerHTML = valor;
